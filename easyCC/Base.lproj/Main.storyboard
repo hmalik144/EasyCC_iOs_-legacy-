@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="easyCC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,96 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="52C-6q-x8K">
+                                <rect key="frame" x="16" y="28" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="R0M-rb-xZv"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert Currency One" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s4Z-H2-NTI">
+                                <rect key="frame" x="16" y="66" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="textFieldChangeListener:" destination="BYZ-38-t0r" eventType="editingChanged" id="P5a-Ve-5DY"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Qbr-AB-HET"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gOb-AC-a8R">
+                                <rect key="frame" x="16" y="104" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WXh-gB-ZBs"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert Currency Two" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s84-D2-Z6S">
+                                <rect key="frame" x="16" y="142" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="textChangeListenerTwo:" destination="BYZ-38-t0r" eventType="editingChanged" id="HbP-Ba-w32"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="886-rA-OY8"/>
+                                </connections>
+                            </textField>
+                            <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUx-aC-4ek">
+                                <rect key="frame" x="16" y="66" width="343" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="BEc-sB-ERF"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ap9-xn-69a"/>
+                                </connections>
+                            </pickerView>
+                            <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8J-WK-23N">
+                                <rect key="frame" x="16" y="142" width="343" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="8WA-hD-Udv"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="YD2-WJ-bWm"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gOb-AC-a8R" firstAttribute="top" secondItem="s4Z-H2-NTI" secondAttribute="bottom" constant="8" id="6SV-fL-Y8u"/>
+                            <constraint firstItem="s84-D2-Z6S" firstAttribute="top" secondItem="gOb-AC-a8R" secondAttribute="bottom" constant="8" id="Cir-UV-QMz"/>
+                            <constraint firstItem="gOb-AC-a8R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DF6-aJ-HaO"/>
+                            <constraint firstItem="s84-D2-Z6S" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="EXF-RC-KfF"/>
+                            <constraint firstItem="52C-6q-x8K" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="KwK-8r-TvX"/>
+                            <constraint firstItem="s4Z-H2-NTI" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="NGq-8J-r6P"/>
+                            <constraint firstItem="52C-6q-x8K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="OqN-xN-xOw"/>
+                            <constraint firstItem="s4Z-H2-NTI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RbV-Ds-F3F"/>
+                            <constraint firstItem="yUx-aC-4ek" firstAttribute="top" secondItem="52C-6q-x8K" secondAttribute="bottom" constant="8" id="b4W-eV-L3k"/>
+                            <constraint firstItem="gOb-AC-a8R" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bjg-rB-FXt"/>
+                            <constraint firstItem="gOb-AC-a8R" firstAttribute="top" secondItem="s4Z-H2-NTI" secondAttribute="bottom" constant="8" id="c77-lI-jFp"/>
+                            <constraint firstItem="t8J-WK-23N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cHL-nr-uDQ"/>
+                            <constraint firstItem="s84-D2-Z6S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cMG-9W-xEp"/>
+                            <constraint firstItem="t8J-WK-23N" firstAttribute="top" secondItem="gOb-AC-a8R" secondAttribute="bottom" constant="8" id="gRX-x6-Ibq"/>
+                            <constraint firstItem="yUx-aC-4ek" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jNn-Gf-Hl0"/>
+                            <constraint firstItem="s4Z-H2-NTI" firstAttribute="top" secondItem="52C-6q-x8K" secondAttribute="bottom" constant="8" id="kWx-YV-NXN"/>
+                            <constraint firstItem="52C-6q-x8K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="nq1-ii-YE0"/>
+                            <constraint firstItem="t8J-WK-23N" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pcs-6v-nte"/>
+                            <constraint firstItem="yUx-aC-4ek" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rac-pG-7fy"/>
+                            <constraint firstItem="t8J-WK-23N" firstAttribute="top" secondItem="gOb-AC-a8R" secondAttribute="bottom" constant="8" id="yyc-QF-HFD"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currencyChoiceOne" destination="52C-6q-x8K" id="Xgb-op-nVl"/>
+                        <outlet property="currencyChoiceTwo" destination="gOb-AC-a8R" id="WkE-UE-YZP"/>
+                        <outlet property="inputOne" destination="s4Z-H2-NTI" id="zCa-zX-eVM"/>
+                        <outlet property="inputTwo" destination="s84-D2-Z6S" id="ij0-d7-SrY"/>
+                        <outlet property="spinnerOne" destination="yUx-aC-4ek" id="tVp-B2-jMc"/>
+                        <outlet property="spinnerTwo" destination="t8J-WK-23N" id="t80-9W-uJ2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
